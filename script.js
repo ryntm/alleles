@@ -1,11 +1,3 @@
-console.log("hi");
-
-// function getAlleleData() {
-//     fetch('https://www.ebi.ac.uk/cgi-bin/ipd/api/allele')
-//     // .then( res => res.json())
-//     // .then( data => console.log(data))
-//     return res.json();
-//     }
 
 async function getAllelesData() {
     try {
@@ -21,9 +13,6 @@ async function getAllelesData() {
 async function displayData() {
     let alleles = await getAllelesData();
 
-    console.log(alleles)
-    console.log(alleles.data)
-
     console.log(document.getElementById("table").innerHTML)
     alleles.data.forEach(allele => {
         let tableHTML = document.getElementById("table").innerHTML
@@ -34,9 +23,7 @@ async function displayData() {
             </td>
         </tr>`
         document.getElementById("table").innerHTML = tableHTML
-
     })
-
 }
 
 displayData();
